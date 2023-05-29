@@ -1,4 +1,3 @@
-import { NextFunction, Response, Request } from "express";
 import mongoose from "mongoose";
 
 export const connectDb = async () => {
@@ -8,14 +7,4 @@ export const connectDb = async () => {
     .catch(() => console.error('Error: Connection With Database Failed!'))
 };
 
-export const dbIsConnected = (req: Request, res: Response, next: NextFunction) => {
-  if (mongoose.connection.readyState != 1) {
-    res.json({
-      status: 'Error 505',
-      message: 'Database Is Not Connected!'
-    })
-  }else{
-    next()
-  } 
-  
-}
+
