@@ -2,15 +2,15 @@ import { Response, Request, NextFunction } from "express";
 import mongoose from "mongoose";
 
 export const errorHandler = (
-  err: any,
+  err: Error,
   _req: Request,
   res: Response,
-  next: NextFunction
+  _next: NextFunction
 )=>{
   if (err.message) {
-    return res.status(500).json({ error: err.message }).end()
+    return res.status(500).json({ error: err.message })
   }else{
-    return res.status(500).json({ error: "Internal Server Error" }).end()
+    return res.status(500).json({ error: "Internal Server Error" })
   }
 }
 export const notFoundHandler = (_req: Request, res: Response) => {

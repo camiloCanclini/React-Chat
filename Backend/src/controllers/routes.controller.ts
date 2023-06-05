@@ -24,6 +24,8 @@ export const registerUser = async (req: Request, res: Response, next: NextFuncti
     const pass: string = req.body.pass!
     const name: string = req.body.name!
     const description: string = req.body.description!
+    console.log(req.file);
+    
     if (email==undefined) {
         return next(new Error('The email Field Is Empty!'))
     }
